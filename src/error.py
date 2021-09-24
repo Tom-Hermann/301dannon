@@ -9,7 +9,8 @@ def error(argv):
     if "-h" in  argv or "--help" in argv:
         printUsage()
         exit(SUCCESS)
-
+    if (len(argv) != 1):
+        exit(FAILURE)
     try:
         fd = open(argv[0], "r")
         buff = fd.read().rstrip()
@@ -19,7 +20,7 @@ def error(argv):
         exit(FAILURE)
 
     if buff[0] == '':
-        return []
+        exit(FAILURE)
     try:
         list = [float(n) for n in buff]
     except:
