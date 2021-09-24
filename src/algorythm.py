@@ -17,35 +17,21 @@ def selectionSort(array):
             array[i], array[min] = array[min], array[i]
     return comp
 
-# def insertionSort(array):
-
-#     comp = 0
-
-#     for i in range(1, len(array)):
-#         key = array[i]
-#         value = i - 1
-#         comp += 1
-#         while value >= 0 and key < array[value]:
-#             comp += 1
-#             array[value + 1] = array[value]
-#             value -= 1
-#         array[value + 1] = key
-#     return comp
-
 
 def insertionSort(array):
+    length = len(array)
     comp = 0
 
-    for i in range(1, len(array)):
-        key = array[i]
-        value = i - 1
-        comp += 1
-        while value >= 0 and key < array[value]:
+    for i in range(1, length):
+        while i > 0:
             comp += 1
-            array[value + 1] = array[value]
-            value -= 1
-        array[value + 1] = key
+            if array[i - 1] <= array[i]:
+                array[i], array[i - 1] = array[i - 1], array[i]
+                i -= 1
+            else:
+                break
     return comp
+
 
 def bubbleSort(array):
 
