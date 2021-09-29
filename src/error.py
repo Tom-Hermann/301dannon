@@ -7,20 +7,11 @@ def printUsage():
 
 
 def advenced_parsing(list):
-    cpy = list
-    sep = " "
-    for char in cpy:
-        if not char.isdigit() and char != "." and char != "-":
-            sep = char
-            break
-    number = cpy.split(sep, 1)
-    try:
-        return [float(number[0])] + advenced_parsing(number[1])
-    except:
-        try:
-            return advenced_parsing(number[1])
-        except:
-            return [float(number[0])]
+    string = list
+    for ch in string:
+        if not ch.isdigit() and not ch in [".", "-", " "]:
+            string = string.replace(ch, " ")
+    return string.split()
 
 
 def error(argv):
@@ -37,7 +28,7 @@ def error(argv):
         print("Error file doesn't exists")
         exit(FAILURE)
 
-    if buff[0] == '':
+    if not buff or buff[0] == '':
         exit(FAILURE)
     try:
         list = [float(n) for n in buff]

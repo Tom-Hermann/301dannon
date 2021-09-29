@@ -17,7 +17,7 @@ tests_run:
 	cp $(MAIN_TEST) ./$(NAME_TEST)
 	chmod +x $(NAME_TEST)
 	coverage run --branch $(NAME_TEST)
-	coverage report -m 
+	coverage report -m
 
 fclean:
 	rm -f $(NAME)
